@@ -107,4 +107,4 @@
       gateway: "{{ iscsi_gateway }}"
       address: "{{ item.ip }}"
     with_items: "{{ interfaces }}"
-    when: configure_iscsi is defined
+    when: configure_iscsi is defined and initial_fa_config is defined
