@@ -4,6 +4,7 @@
       name: "{{ array_name }}"
       fa_url: "{{ url }}"
       api_token: "{{ api }}"
+    when: initial_fa_config is defined
 
   - name: FlashStack Configuration | FlashArray | DNS for {{ array_name }}
     purefa_dns:
@@ -11,12 +12,14 @@
       nameservers: "{{ dns_address }}"
       fa_url: "{{ url }}"
       api_token: "{{ api }}"
+    when: initial_fa_config is defined
 
   - name: FlashStack Configuration | FlashArray | NTP for {{ array_name }}
     purefa_ntp:
       ntp_servers: "{{ ntp_servers }}"
       fa_url: "{{ url }}"
       api_token: "{{ api }}"
+    when: initial_fa_config is defined
 
   - name: FlashStack Configuration | FlashArray | SMTP for {{ array_name }}
     purefa_smtp:
@@ -25,6 +28,7 @@
       fa_url: "{{ url }}"
       api_token: "{{ api }}"
     when: smtp_domain and smtp_relay
+    when: initial_fa_config is defined
 
   - name: FlashStack Configuration | FlashArray | Pure1 Proxy for {{ array_name }}
     purefa_proxy:
@@ -33,6 +37,7 @@
       fa_url: "{{ url }}"
       api_token: "{{ api }}"
     when: proxy_server and proxy_port
+    when: initial_fa_config is defined
 
   - name: FlashStack Configuration | FlashArray | Alert Email for {{ array_name }}
     purefa_alert:
@@ -40,18 +45,21 @@
       fa_url: "{{ url }}"
       api_token: "{{ api }}"
     when: alert_address
-  
+    when: initial_fa_config is defined
+
   - name: FlashStack Configuration | FlashArray | Phone Home for {{ array_name }}
     purefa_phonehome:
       state: "{{ phonehome }}"
       fa_url: "{{ url }}"
       api_token: "{{ api }}"
+    when: initial_fa_config is defined
 
   - name: FlashStack Configuration | FlashArray | Remote Assist for {{ array_name }}
     purefa_ra:
       state: "{{ remote_assist }}"
       fa_url: "{{ url }}"
       api_token: "{{ api }}"
+    when: initial_fa_config is defined
 
   - name: FlashStack Configuration | FlashArray | Active Directory roles for {{ array_name }}
     purefa_dsrole:
@@ -75,6 +83,7 @@
       - name: storage_admin
         group_base: "{{ ad_storage_base }}"
         group: "{{ ad_storage_group }}"
+    when: initial_fa_config is defined
 
   - name: FlashStack Configuration | FlashArray | Management Active Directory for {{ array_name }}
     purefa_ds:
@@ -87,6 +96,7 @@
       bind_user: "{{ mgmt_ad_user }}"
       bind_password: "{{ mgmt_ad_password }}"
     no_log: True
+    when: initial_fa_config is defined
 
   - name: FlashStack Configuration | FlashArray | Configure iSCSI interfaces for {{ array_name }}
     purefa_network:
