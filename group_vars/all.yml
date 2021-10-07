@@ -4,6 +4,7 @@
 # Commenting out the following two variables will skip the iSCSI and/or FC configurations
 configure_iscsi: "yes"
 #configure_fc: "yes"
+#initial_fa_config: "yes"
 #
 # FC-NVMe Configuration, only define this if configure_fc is defined
 #configure_fc_nvme: "yes"
