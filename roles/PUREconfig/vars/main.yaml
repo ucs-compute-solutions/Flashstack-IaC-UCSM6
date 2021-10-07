@@ -1,0 +1,92 @@
+---
+url: 10.2.164.45
+api: 39b3f1df-73ff-1371-240b-8ce1d480fc6e
+
+array_name: acme-fa-1
+
+interfaces:
+  - ip: 1.3.3.2/24
+    port: ct0.eth4
+  - ip: 1.3.3.3/24
+    port: ct0.eth5
+  - ip: 1.3.3.4/24
+    port: ct1.eth4
+  - ip: 1.3.3.5/24
+    port: ct1.eth5
+
+iscsi_gateway: 1.3.3.5 # or none
+iscsi_mtu: 9000
+
+dns_address:
+  - 8.8.8.8
+  - 8.8.4.4
+
+dns_domain: acme.com
+
+ntp_servers:
+  - ntp1.pool.org
+  - ntp2.pool.org
+
+phonehome: present
+remote_assist: enable
+
+proxy_server: relay.acme.com
+proxy_port:  80
+
+smtp_relay: smtp.acme.com
+smtp_domain: acme.com
+
+alert_address: alert@acme.com
+
+mgmt_ad_uri:
+  - "ldap://1.2.3.5"
+  - "ldap://1.2.3.6"
+mgmt_ad_base: "DC=acme,DC=lab"
+mgmt_ad_user: "svc.ldap"
+mgmt_ad_password: "P@ssw0rd!"
+
+ad_admin_base: "OU=Groups,OU=Acme Lab"
+ad_admin_group: "Acme Array Admins"
+ad_storage_base: null
+ad_storage_group: null
+ad_ops_base: null
+ad_ops_group: null
+ad_ro_base: "OU=Groups,OU=Acme Lab"
+ad_ro_group: "Acme Array ReadOnly"
+configure_iscsi: "yes"
+esx_cluster_fcp: VM-Infra-FCP-Host-Group
+esx_cluster_iscsi: VM-Infra-iSCSI-Host-Group
+esx_hosts_iscsi:
+  VM-Infra-Host-iSCSI-01:
+    iqn: iqn.1998-01.com.vmware:esxi1-2bef2660
+    protocol: iscsi
+  VM-Infra-Host-iSCSI-02:
+    iqn: iqn.1998-01.com.vmware:esxi2-2ce296a0
+    protocol: iscsi
+  VM-Infra-Host-iSCSI-03:
+    iqn: iqn.1998-01.com.vmware:esxi3-28f0242c
+    protocol: iscsi
+esx_hosts_fc:
+  VM-Infra-Host-FCP-01:
+    wwns:
+      - 00:00:00:00:00:00:00:01
+      - 00:00:00:00:00:00:00:02
+    protocol: fc
+  VM-Infra-Host-FCP-02:
+    wwns:
+      - 00:00:00:00:00:00:00:03
+      - 00:00:00:00:00:00:00:04
+    protocol: fc
+  VM-Infra-Host-FCP-03:
+    wwns:
+      - 00:00:00:00:00:00:00:05
+      - 00:00:00:00:00:00:00:06
+    protocol: fc
+datastore_count: 5
+datastore_swap: 1
+datastore_swap_size: 500G
+datastore_size: 1T
+bfs_size: 20G
+fa_url: 10.2.164.45
+fa_api_token: 39b3f1df-73ff-1371-240b-8ce1d480fc6e
+

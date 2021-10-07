@@ -1,0 +1,52 @@
+---
+vpc_source: 10.1.164.61
+vpc_destination: 10.1.164.62
+vpc_role_priority: "10"
+#Baremetal_ntp_dist_IP: '10.1.164.254/24'
+# Interface Lists; more interfaces can be added for additional BW
+#
+# NTP Distribution IP for N9K-A in the IB-MGMT VLAN
+IB_MGMT_ntp_dist_IP: "{{ ib_mgmt_ntp_servers[0].ip_address }}{{ ntp_distribution_nm_cidr }}"
+# Interface Lists; more interfaces can be added for additional BW
+#
+mgmt_interface_list:
+  - interface: "Ethernet1/9"
+    description: "Uplink-SW"
+
+peerlink_interface_list:
+  - interface:  "Ethernet1/53"
+    description: "BB08-93180-B:Eth1/53"
+  - interface:  "Ethernet1/54"
+    description: "BB08-93180-B:Eth1/54"
+#
+FI_A_interface_list:
+  - interface:  "Ethernet1/1"
+    description: "BB08-6454-FI-A:Eth1/33"
+  - interface:  "Ethernet1/2"
+    description: "BB08-6454-FI-A:Eth1/34"
+  - interface:  "Ethernet1/3"
+    description: "BB08-6454-FI-A:Eth1/35"
+  - interface:  "Ethernet1/4"
+    description: "BB08-6454-FI-A:Eth1/36"
+
+#
+FI_B_interface_list:
+  - interface:  "Ethernet1/5"
+    description: "BB08-6454-FI-B:Eth1/33"
+  - interface:  "Ethernet1/6"
+    description: "BB08-6454-FI-B:Eth1/34"
+  - interface:  "Ethernet1/7"
+    description: "BB08-6454-FI-B:Eth1/35"
+  - interface:  "Ethernet1/8"
+    description: "BB08-6454-FI-B:Eth1/36"
+
+#
+storage_interface_list:
+  - interface:  "Ethernet1/37"
+    description: "BB08-X50R3-ct0.eth4"
+  - interface:  "Ethernet1/38"
+    description: "BB08-X50R3-ct1.eth4"
+
+iscsi_vlan: "901"
+#
+all_interfaces: "{{ mgmt_interface_list + peerlink_interface_list + FI_A_interface_list + FI_B_interface_list + storage_interface_list }}"

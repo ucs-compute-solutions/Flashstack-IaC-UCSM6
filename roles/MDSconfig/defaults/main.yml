@@ -1,0 +1,8 @@
+---
+  #vars file for MDS
+
+# List of features to be enabled.  By defaul npiv and fport-channel-trunk are enabled
+  enabled_mds_features:
+    - npiv
+    - fport-channel-trunk
+    - nxapi

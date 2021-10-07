@@ -1,0 +1,234 @@
+---
+# Variables for Equipment related configurations of UCSM
+#
+# chassis_links options: 1-link, 2-link, 4-link, 8-link, platform-max
+# chassis_link_aggr options: port-channel , none (check UCSM version)
+# Set to the minimum number of links to a chassis with a minumum of 2-link
+#
+chassis_links: 4-link
+chassis_link_aggr: port-channel
+#
+# This is the list of all the server ports where chassis and rack servers are connected (enable the ports for rack serverrs as needed)
+#
+server_port_list:
+# UCS Chassis Connections
+  - fabric_id: "A"
+    slot_id: '1'
+    port_id: '17'
+  - fabric_id: "A"
+    slot_id: '1'
+    port_id: '18'
+  - fabric_id: "A"
+    slot_id: '1'
+    port_id: '19'
+  - fabric_id: "A"
+    slot_id: '1'
+    port_id: '20'
+  - fabric_id: "B"
+    slot_id: '1'
+    port_id: '17'
+  - fabric_id: "B"
+    slot_id: '1'
+    port_id: '18'
+  - fabric_id: "B"
+    slot_id: '1'
+    port_id: '19'
+  - fabric_id: "B"
+    slot_id: '1'
+    port_id: '20'
+# Rack Server Connections
+#  - fabric_id: "A"
+#    slot_id: '1'
+#    port_id: '21'
+#  - fabric_id: "A"
+#    slot_id: '1'
+#    port_id: '22'
+#  - fabric_id: "A"
+#    slot_id: '1'
+#    port_id: '23'
+#  - fabric_id: "A"
+#    slot_id: '1'
+#    port_id: '24'
+#  - fabric_id: "A"
+#    slot_id: '1'
+#    port_id: '21'
+#  - fabric_id: "B"
+#    slot_id: '1'
+#    port_id: '22'
+#  - fabric_id: "B"
+#    slot_id: '1'
+#    port_id: '23'
+#  - fabric_id: "B"
+#    slot_id: '1'
+#    port_id: '24'
+#  - fabric_id: "B"
+#    slot_id: '1'
+#    port_id: '31'
+#  - fabric_id: "A"
+#    slot_id: '1'
+#    port_id: '32'
+#  - fabric_id: "A"
+#    slot_id: '1'
+#    port_id: '31'
+#  - fabric_id: "B"
+#    slot_id: '1'
+#    port_id: '32'
+#  - fabric_id: "A"
+#    slot_id: '1'
+#    port_id: '33'
+#  - fabric_id: "A"
+#    slot_id: '1'
+#    port_id: '34'
+#  - fabric_id: "B"
+#    slot_id: '1'
+#    port_id: '33'
+#  - fabric_id: "B"
+#    slot_id: '1'
+#    port_id: '34'
+#
+# This is the list for Port-Channel Configuration Parameters including uplink ports
+# admin_speed can be hard coded to "100gbps" (default to match Nexus Config) or "auto".
+#
+port_channel_list:
+  - name: "Po145-Nexus"
+    pc_id: '145'
+    fabric_id: "A"
+    slot_id: '1'
+    port_id: '33'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-A:Eth1/1"
+  - name: "Po145-Nexus"
+    pc_id: '145'
+    fabric_id: "A"
+    slot_id: '1'
+    port_id: '34'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-A:Eth1/2"
+  - name: "Po145-Nexus"
+    pc_id: '145'
+    fabric_id: "A"
+    slot_id: '1'
+    port_id: '35'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-A:Eth1/3"
+  - name: "Po145-Nexus"
+    pc_id: '145'
+    fabric_id: "A"
+    slot_id: '1'
+    port_id: '36'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-A:Eth1/4"
+  - name: "Po145-Nexus"
+    pc_id: '145'
+    fabric_id: "A"
+    slot_id: '1'
+    port_id: '37'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-B:Eth1/1"
+  - name: "Po145-Nexus"
+    pc_id: '145'
+    fabric_id: "A"
+    slot_id: '1'
+    port_id: '38'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-B:Eth1/2"
+  - name: "Po145-Nexus"
+    pc_id: '145'
+    fabric_id: "A"
+    slot_id: '1'
+    port_id: '39'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-B:Eth1/3"
+  - name: "Po145-Nexus"
+    pc_id: '145'
+    fabric_id: "A"
+    slot_id: '1'
+    port_id: '40'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-B:Eth1/4"
+  - name: "Po146-Nexus"
+    pc_id: '146'
+    fabric_id: "B"
+    slot_id: '1'
+    port_id: '33'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-A:Eth1/5"
+  - name: "Po146-Nexus"
+    pc_id: '146'
+    fabric_id: "B"
+    slot_id: '1'
+    port_id: '34'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-A:Eth1/6"
+  - name: "Po146-Nexus"
+    pc_id: '146'
+    fabric_id: "B"
+    slot_id: '1'
+    port_id: '35'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-A:Eth1/7"
+  - name: "Po146-Nexus"
+    pc_id: '146'
+    fabric_id: "B"
+    slot_id: '1'
+    port_id: '36'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-A:Eth1/8"
+  - name: "Po146-Nexus"
+    pc_id: '146'
+    fabric_id: "B"
+    slot_id: '1'
+    port_id: '37'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-B:Eth1/5"
+  - name: "Po146-Nexus"
+    pc_id: '146'
+    fabric_id: "B"
+    slot_id: '1'
+    port_id: '38'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-B:Eth1/6"
+  - name: "Po146-Nexus"
+    pc_id: '146'
+    fabric_id: "B"
+    slot_id: '1'
+    port_id: '39'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-B:Eth1/7"
+  - name: "Po146-Nexus"
+    pc_id: '146'
+    fabric_id: "B"
+    slot_id: '1'
+    port_id: '40'
+    admin_speed: "auto"
+    description: "BB08-93180-N9K-B:Eth1/8"
+
+# This is the list of unused FC Ports that will be disabled to avoid alerts. Since FC ports
+# must be configure in groups (of 4 on the 6454 FI), some ports may be unused.
+#Disabling unused_FC_port_list as all four FC ports are used, uncomment the below line if only two ports are used.
+unused_fc_port_list:
+  - fabric_id: "A"
+    slot_id: '1'
+    port_id: '5'
+  - fabric_id: "A"
+    slot_id: '1'
+    port_id: '6'
+  - fabric_id: "B"
+    slot_id: '1'
+    port_id: '5'
+  - fabric_id: "B"
+    slot_id: '1'
+    port_id: '6'
+  - fabric_id: "A"
+    slot_id: '1'
+    port_id: '7'
+  - fabric_id: "A"
+    slot_id: '1'
+    port_id: '8'
+  - fabric_id: "B"
+    slot_id: '1'
+    port_id: '7'
+  - fabric_id: "B"
+    slot_id: '1'
+    port_id: '8'
+

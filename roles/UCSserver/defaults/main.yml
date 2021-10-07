@@ -1,0 +1,173 @@
+---
+# Variables for Server configurations of UCSM
+# Adjust the variable values as per your requirements
+
+# UCS Server Bundles for Default Host Firmware Package
+# These bundles need to already be installed on the FIs
+blade_bundle_version: '4.2(1f)B'
+rack_bundle_version: '4.2(1f)C'
+
+# Assignment order for various pool parameters
+server_assign_order: 'sequential'
+# To add or remove certain parameters
+server_state: 'present'
+
+# UUID Pool Information
+uuid_pool_name: UUID-Pool
+uuid_start: '0000-0000A1300001'
+uuid_end: '0000-0000A13000FF'
+
+# Server Pool Information
+server_pool_name: 'Infra-Pool'
+# Comment out a list to ignore the rack or blade configuration in the server pools
+# Add additional servers or blades to the list using the same format.
+#
+# C-Series Rack Servers
+#rack_list:
+#  - id: '1'
+#  - id: '2'
+#  - id: '3'
+#
+#B-Series Blade Servers
+blade_list:
+  - chassis_number: '1'
+    slot_number: '1'
+  - chassis_number: '1'
+    slot_number: '2'
+  - chassis_number: '1'
+    slot_number: '3'
+  - chassis_number: '1'
+    slot_number: '4'
+  - chassis_number: '1'
+    slot_number: '5'
+  - chassis_number: '1'
+    slot_number: '6'
+#
+# Power Control Policy
+power_policy_name: 'No-PowerCap'
+#
+# Local Disk Policy
+local_disk_policy_name: 'IgnoreDisk'
+local_disk_mode: 'any-configuration'
+#
+# BIOS Policy Intel-M5-Virt
+intel_m5_virt_bios_policy_name: 'Intel-M5-Virt'
+intel_m5_virt_bios_setting_list:
+  - name: 'Enable CDN Control'
+    mo_token: 'tokn-featr-Consistent Device Name Control/tokn-param-cdnEnable'
+    mo_setting: 'Enabled'
+  - name: 'Disable Quiet Boot'
+    mo_token: 'tokn-featr-Quiet Boot/tokn-param-QuietBoot'
+    mo_setting: 'Disabled'
+  - name: 'Power Technology - Custom'
+    mo_token: 'tokn-featr-Processor Energy Configuration/tokn-param-CPUPowerManagement'
+    mo_setting: 'Custom'
+  - name: 'Processor C state - Disabled'
+    mo_token: 'tokn-featr-Processor C State/tokn-param-ProcessorCstate'
+    mo_setting: 'Disabled'
+  - name: 'Processor C1E - Disabled'
+    mo_token: 'tokn-featr-Processor C1E/tokn-param-ProcessorC1E'
+    mo_setting: 'Disabled'
+  - name: 'Processor C3 Report - Disabled'
+    mo_token: 'tokn-featr-Processor C3 Report/tokn-param-ProcessorC3Report'
+    mo_setting: 'Disabled'
+  - name: 'Processor C6 Report - Disabled'
+    mo_token: 'tokn-featr-Processor C6 Report/tokn-param-ProcessorC6Report'
+    mo_setting: 'Disabled'
+  - name: 'Processor C7 Report - Disabled'
+    mo_token: 'tokn-featr-Processor C7 Report/tokn-param-ProcessorC7Report'
+    mo_setting: 'Disabled'
+  - name: 'NVM Performance Setting - Balanced Profile'
+    mo_token: 'tokn-featr-NVM Performance Setting/tokn-param-NvmdimmPerformConfig'
+    mo_setting: 'Balanced-Profile'
+#
+# BIOS Policy Intel-M6-Virt
+intel_m6_virt_bios_policy_name: 'Intel-M6-Virt'
+intel_m6_virt_bios_setting_list:
+  - name: 'Enable CDN Control'
+    mo_token: 'tokn-featr-Consistent Device Name Control/tokn-param-cdnEnable'
+    mo_setting: 'Enabled'
+  - name: 'Disable Quiet Boot'
+    mo_token: 'tokn-featr-Quiet Boot/tokn-param-QuietBoot'
+    mo_setting: 'Disabled'
+  - name: 'Disable LLC Prefetch'
+    mo_token: 'tokn-featr-Processor Prefetch Config/tokn-param-LLCPrefetch'
+    mo_setting: 'Disabled'
+  - name: 'Enable Sub NUMA Clustering'
+    mo_token: 'tokn-featr-Interleave Configuration/tokn-param-SNC'
+    mo_setting: 'Enabled'
+  - name: 'Enable UPI Prefetch'
+    mo_token: 'tokn-featr-Processor Prefetch Config/tokn-param-KTIPrefetch'
+    mo_setting: 'Enabled'
+  - name: 'Enable XPT Prefetch'
+    mo_token: 'tokn-featr-Processor Prefetch Config/tokn-param-XPTPrefetch'
+    mo_setting: 'Enabled'
+  - name: 'Set UPI Link Frequency Select to Auto'
+    mo_token: 'tokn-featr-Processor Prefetch Config/tokn-param-QpiLinkSpeed'
+    mo_setting: 'Auto'
+  - name: 'Set Panic and High Watermark to High'
+    mo_token: 'tokn-featr-Panic and High Watermark/tokn-param-PanicHighWatermark'
+    mo_setting: 'High'
+  - name: 'Set Memory Refresh Rate to 1x Refresh'
+    mo_token: 'tokn-featr-Memory Refresh Rate/tokn-param-MemoryRefreshRate'
+    mo_setting: '1x-Refresh'
+  - name: 'Disable Partial Cache Line Sparing'
+    mo_token: 'tokn-featr-Partial Cache Line Sparing/tokn-param-PartialCacheLineSparing'
+    mo_setting: 'Disabled'
+  - name: 'Disable Patrol Scrub'
+    mo_token: 'tokn-featr-Scrub Policies/tokn-param-PatrolScrub'
+    mo_setting: 'Disabled'
+  - name: 'Enable Energy Efficient Turbo'
+    mo_token: 'tokn-featr-Intel Turbo Boost Tech/tokn-param-EnergyEfficientTurbo'
+    mo_setting: 'Enabled'
+  - name: 'Enable Processor C6 Report'
+    mo_token: 'tokn-featr-Processor C6 Report/tokn-param-ProcessorC6Report'
+    mo_setting: 'Enabled'
+  - name: 'Enable Processor C1E'
+    mo_token: 'tokn-featr-Processor C1E/tokn-param-ProcessorC1E'
+    mo_setting: 'Enabled'
+  - name: 'Set Workload Configuration to Balanced'
+    mo_token: 'tokn-featr-Workload Configuration/tokn-param-WorkLdConfig'
+    mo_setting: 'Balanced'
+  - name: 'Disable Memory Thermal Throttling Mode'
+    mo_token: 'tokn-featr-Memory Thermal Throttling Mode/tokn-param-MemoryThermalThrottling'
+    mo_setting: 'Disabled'
+  - name: 'NVM Performance Setting - Balanced Profile'
+    mo_token: 'tokn-featr-NVM Performance Setting/tokn-param-NvmdimmPerformConfig'
+    mo_setting: 'Balanced-Profile'
+#
+# BIOS Policy AMD-C125-Virt
+amd_c125_virt_bios_policy_name: 'AMD-C125-Virt'
+amd_c125_virt_bios_setting_list:
+  - name: 'Enable CDN Control'
+    mo_token: 'tokn-featr-Consistent Device Name Control/tokn-param-cdnEnable'
+    mo_setting: 'Enabled'
+  - name: 'Disable Quiet Boot'
+    mo_token: 'tokn-featr-Quiet Boot/tokn-param-QuietBoot'
+    mo_setting: 'Disabled'
+#
+# vMedia Policy - Mount CD ISO via HTTP
+# For Mounting http://{{ vmedia_server_ip }}/{{ vmedia_iso_path }}/{{ vmedia_iso_filename }}
+# i.e http://10.1.156.150/software/vSphere-7-Update-2/VMware_ESXi_7.0.2_17867351_Custom_Cisco_4.1.3_a.iso
+vmedia_policy_name: 'ESXi-7U2-CC-HTTP'
+vmedia_server_ip: '10.1.164.127'
+vmedia_iso_path: 'software/vSphere-7-Update-2'
+vmedia_iso_filename: 'VMware_ESXi_7.0.2_17867351_Custom_Cisco_4.1.3_a.iso'
+#
+# IPMI/Redfish Access Profile
+ipmi_pol_name: 'IPMI-Profile'
+ipmi_user_id: 'ipmiadmin'
+ipmi_password: "{{ password }}"
+#
+# iSCSI Boot Policy
+iscsi_boot_policy_name: 'Boot-iSCSI'
+#
+# iSCSI Service Profile Template
+iscsi_SPT_name: 'VM-Host-Infra-iSCSI'
+#
+# FC Boot Policy
+fc_boot_policy_name: 'Boot-FCP'
+#
+# FC Service Profile Template
+fc_SPT_name: 'VM-Host-Infra-FCP'
+

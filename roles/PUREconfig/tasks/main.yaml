@@ -1,0 +1,5 @@
+  # Intial FlashArray Setup Policy
+#  - include_tasks: SetupPure.yml ConfigPure.yaml
+  # Configure FlashArray
+  - include_tasks: ConfigPure.yml
+
