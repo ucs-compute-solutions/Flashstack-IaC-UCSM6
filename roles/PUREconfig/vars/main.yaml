@@ -53,7 +53,6 @@ ad_ops_base: null
 ad_ops_group: null
 ad_ro_base: "OU=Groups,OU=Acme Lab"
 ad_ro_group: "Acme Array ReadOnly"
-configure_iscsi: "yes"
 esx_cluster_fcp: VM-Infra-FCP-Host-Group
 esx_cluster_iscsi: VM-Infra-iSCSI-Host-Group
 esx_hosts_iscsi:
