@@ -4,9 +4,11 @@
 # Commenting out the following two variables will skip the iSCSI and/or FC configurations
 configure_iscsi: "yes"
 #configure_fc: "yes"
+#
+# Initial FlashArray Configuration, only define this if initial Pure FlashArray setup is required 
 #initial_fa_config: "yes"
 #
-# FC-NVMe Configuration, only define this if configure_fc is defined
+# FC-NVMe Configuration, only define this if configure_fc is defined and fc-nvme cconfiguration is required
 #configure_fc_nvme: "yes"
 #
 # Enable VSAN trunking between UCS FI and MDS, only set this to yes if configure_fc is set to yes
