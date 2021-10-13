@@ -41,14 +41,14 @@
     - device_name: FlashArray-CT1FC3
       pwwn: "{{ fcp_ct1_fc3 }}"
       dev_type: target
-    - device_name: VM-Host-Infra-FC-NVMe-01-A
-      pwwn: "{{ ucs_nvme_host_01_a }}"
+    - device_name: VM-Host-Infra-FC-NVMe-01-B
+      pwwn: "{{ ucs_nvme_host_01_b }}"
       dev_type: initiator
-    - device_name: VM-Host-Infra-FC-NVMe-02-A
-      pwwn: "{{ ucs_nvme_host_02_a }}"
+    - device_name: VM-Host-Infra-FC-NVMe-02-B
+      pwwn: "{{ ucs_nvme_host_02_b }}"
       dev_type: initiator
-    - device_name: VM-Host-Infra-FC-NVMe-03-A
-      pwwn: "{{ ucs_nvme_host_03_a }}"
+    - device_name: VM-Host-Infra-FC-NVMe-03-B
+      pwwn: "{{ ucs_nvme_host_03_b }}"
       dev_type: initiator
 #
 # MDS Switch FC Interface List
