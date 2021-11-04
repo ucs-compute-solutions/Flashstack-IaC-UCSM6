@@ -25,6 +25,7 @@ ntp_servers:
 ib_mgmt_ntp_servers:                # To be used by ESXi hosts and VMs
   - ip_address: "10.1.164.127"
   - ip_address: "10.1.164.254"
+ntp_distribution_nm_cidr: 24
 
 # Uncomment and update the the following lines to setup DNS Server(s)
 dns_servers:
