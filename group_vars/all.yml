@@ -3,7 +3,7 @@
 # This is the list of all the VLANs that will be defined on Nexus, UCS and OCP
 #
 # Commenting out the following two variables will skip the iSCSI and/or FC configurations
-# configure_iscsi: "yes"
+configure_iscsi: "yes"
 # configure_fc: "yes"
 #
 # Initial FlashArray Configuration, only define this if initial Pure FlashArray setup is required
@@ -12,10 +12,10 @@
 # FC-NVMe Configuration, only define this if configure_fc is defined and fc-nvme configuration is required
 # ESXi does not support presenting VMFS storage via more than one protocol, so enabling NVMe will override FC connectivity
 # Creating a multi-protocol host object should be avoided on the FlashArray when in use with VMware ESXi
-configure_nvme: "yes"
+# configure_nvme: "yes"
 #
 # Swap Datastore Configuration, not required for Pure Storage, only left here in case customer already uses swap datastores
-swap_datastore: "yes"
+# swap_datastore: "yes"
 # Enable VSAN trunking between UCS FI and MDS, only set this to yes if configure_fc is set to yes
 enable_vsan_trunking: "yes"
 
