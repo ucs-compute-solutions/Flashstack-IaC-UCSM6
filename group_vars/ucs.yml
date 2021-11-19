@@ -5,9 +5,9 @@
 # Adjust the variable values as per your requirements
 
 #
-#UCS Organization
+# UCS Organization
 organization: 'FlashStack-VSI'
-#UCS Alternate User to admin
+# UCS Alternate User to admin
 ucs_alt_user: 'flashadmin'
 ucs_alt_passwd: 'H1ghV0lt'
 #
@@ -35,6 +35,5 @@ san_policy_fcp_vhba_b_name: 'FCP-Fabric-B'
 san_policy_fc_nvme_vhba_a_name: 'FC-NVME-Fabric-A'
 san_policy_fc_nvme_vhba_b_name: 'FC-NVME-Fabric-B'
 # Storage iSCSI Target
-#storage_iscsi_target: '<Storage System IQN>'
+# storage_iscsi_target: '<Storage System IQN>'
 storage_iscsi_target: 'iqn.2010-06.com.purestorage:flasharray.779962553908b056'
-

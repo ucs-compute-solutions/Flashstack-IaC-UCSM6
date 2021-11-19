@@ -7,13 +7,13 @@ san_assign_order: 'sequential'
 # To add or remove certain parameters
 san_state: 'present'
 #
-#iSCSI IQN values
+# iSCSI IQN values
 iqn_prefix: 'iqn.2010-11.com.flashstack'
 iqn_suffix: 'infra-ucs-host'
 iqn_block_start: '1'
 iqn_block_end: '32'
 #
-#FC Configuration parameters
+# FC Configuration parameters
 #
 wwn_pool_list:
   - name: 'WWNN-Pool'

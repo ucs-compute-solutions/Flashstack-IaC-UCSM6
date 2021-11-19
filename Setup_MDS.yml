@@ -2,7 +2,7 @@
 # Example Playbook: VLAN configuration using the [ucs] hosts group
 - hosts: mds
   connection: network_cli
-  gather_facts: no
+  gather_facts: false
   roles:
     ### Configure Nexus Switching
     #
@@ -10,14 +10,14 @@
     #
 - hosts: ucs
   connection: local
-  gather_facts: no
+  gather_facts: false
   roles:
     ### Setup Equipment related tasks in UCS
     #
     # Enable server auto-discovery policy
     # Setup Server Ports to connect to Chassis and Rack Servers
     # Setup Uplink Ports and Port-Channels
-    #- UCSequipment
+    # - UCSequipment
     #
     ### Setup Admin tasks in UCS
     #
@@ -28,7 +28,7 @@
     #
     # To configure the "optional" parameters, uncomment and update the variables
     # under roles/admin/vars.
-    #- UCSadmin
+    # - UCSadmin
     #
     #
     ### Setup LAN Tasks in UCS
@@ -42,4 +42,4 @@
     # Network Control Policy - Enable CDP and LLDP
     # iSCSI LAN Connectivity Policy (if required)
     # FC LAN Connectivity Policy (if required)
-    #- UCSlan
+    # - UCSlan

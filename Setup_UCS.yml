@@ -5,7 +5,7 @@
   connection: local
   collections:
   - cisco.ucs
-  gather_facts: yes
+  gather_facts: true
   roles:
     ### Setup Equipment related tasks in UCS
     #
@@ -79,5 +79,5 @@
     #
     # Configure Disk Group Policy
     # Configure Storage Profile
-#    - UCSstorage
+    # - UCSstorage
     #

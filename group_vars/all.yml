@@ -1,16 +1,21 @@
+---
 #
-#This is the list of all the VLANs that will be defined on Nexus, UCS and OCP
+# This is the list of all the VLANs that will be defined on Nexus, UCS and OCP
 #
 # Commenting out the following two variables will skip the iSCSI and/or FC configurations
-configure_iscsi: "yes"
-#configure_fc: "yes"
+# configure_iscsi: "yes"
+# configure_fc: "yes"
 #
-# Initial FlashArray Configuration, only define this if initial Pure FlashArray setup is required 
-#initial_fa_config: "yes"
+# Initial FlashArray Configuration, only define this if initial Pure FlashArray setup is required
+# initial_fa_config: "yes"
 #
-# FC-NVMe Configuration, only define this if configure_fc is defined and fc-nvme cconfiguration is required
-#configure_fc_nvme: "yes"
+# FC-NVMe Configuration, only define this if configure_fc is defined and fc-nvme configuration is required
+# ESXi does not support presenting VMFS storage via more than one protocol, so enabling NVMe will override FC connectivity
+# Creating a multi-protocol host object should be avoided on the FlashArray when in use with VMware ESXi
+configure_nvme: "yes"
 #
+# Swap Datastore Configuration, not required for Pure Storage, only left here in case customer already uses swap datastores
+swap_datastore: "yes"
 # Enable VSAN trunking between UCS FI and MDS, only set this to yes if configure_fc is set to yes
 enable_vsan_trunking: "yes"
 
@@ -38,18 +43,18 @@ dns_domain_name: "flashstack.com"
 
 # VLAN Names are adjustable and can be modified in here
 #
-native_vlan_name: 'Native-Vlan' # Native VLAN
-oob_vlan_name: 'OOB-MGMT-VLAN' # Out of Band Mgmt VLAN
-ib_vlan_name: 'IB-MGMT-VLAN' # IN BAND Management VLAN
-vm_vlan_name: 'VM-Traffic-VLAN' # VLAN to carry VM traffic on VDS
-vmotion_vlan_name: 'vMotion-VLAN' # vMotion VLAN
-iscsiA_vlan_name: 'iSCSI-A-VLAN' # iSCSI-A VLAN (if needed)
-iscsiB_vlan_name: 'iSCSI-B-VLAN' # iSCSI-B VLAN (if needed)
+native_vlan_name: 'Native-Vlan'  # Native VLAN
+oob_vlan_name: 'OOB-MGMT-VLAN'  # Out of Band Mgmt VLAN
+ib_vlan_name: 'IB-MGMT-VLAN'  # IN BAND Management VLAN
+vm_vlan_name: 'VM-Traffic-VLAN'  # VLAN to carry VM traffic on VDS
+vmotion_vlan_name: 'vMotion-VLAN'  # vMotion VLAN
+iscsiA_vlan_name: 'iSCSI-A-VLAN'  # iSCSI-A VLAN (if needed)
+iscsiB_vlan_name: 'iSCSI-B-VLAN'  # iSCSI-B VLAN (if needed)
 #
 # lan_state should be set to 'present' to configure the objects
 # In future, this parameter will be used for deleting the configuration
 #
-lan_state : 'present'
+lan_state: 'present'
 #
 vlan_list:
   - name: "{{ native_vlan_name }}"
@@ -117,7 +122,7 @@ vds_vlan_list:
     active_uplinks: "Uplink 2"
     standby_uplinks: "Uplink 1"
 #
-#VSAN Parameters
+# VSAN Parameters
 #
 vsan_list:
   - name: 'FlashStack-Fabric-A'
@@ -198,10 +203,9 @@ dv_version: "7.0.2"
 dv_uplink: "2"
 dv_protocol: "lldp"
 dv_operation: "both"
-#vMotion_vlan_list: "1130"
+# vMotion_vlan_list: "1130"
 vMotion_vlan_list:
   - name: "{{ vmotion_vlan_name }}"
     # portgroup name will be configured in VMware
     portgroup_name: "{{ vmotion_portgroup }}"
     id: '1130'
-

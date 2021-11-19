@@ -7,8 +7,8 @@ n9kB ansible_host=10.1.164.62 ansible_user=admin ansible_password=H1ghV0lt! ansi
 
 [pure]
 #Pure Management IP. List only one cluster IP.
-10.2.164.100
-
+#10.2.164.100
+192.168.10.102
 
 [mds]
 mdsA ansible_host=10.1.164.63 ansible_user=admin ansible_password=H1ghV0lt! ansible_network_os=nxos
@@ -29,6 +29,7 @@ mdsB ansible_host=10.1.164.64 ansible_user=admin ansible_password=H1ghV0lt! ansi
 #
 esxi_fc
 esxi_iscsi
+esxi_nvme
 
 [vmware:vars]
 ansible_connection=ssh
@@ -41,7 +42,7 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 # Comment out or delete all the hosts if ESXi hosts with FC connectivity are not present
 # FC host configuration will only take place if the variable configure_fc: "yes" is defined (not commended out)
 #
-#nx-esxi-fc-1.flashstack.com  vmotion_ip=192.168.30.111  vmotion_mask=255.255.255.0 
+#nx-esxi-fc-1.flashstack.com  vmotion_ip=192.168.30.111  vmotion_mask=255.255.255.0
 #nx-esxi-fc-2.flashstack.com  vmotion_ip=192.168.30.112  vmotion_mask=255.255.255.0
 #nx-esxi-fc-3.flashstack.com  vmotion_ip=192.168.30.113  vmotion_mask=255.255.255.0
 
@@ -49,17 +50,17 @@ vm-host-infra-fcp-01.flashstack.com  vmotion_ip=192.168.30.111  vmotion_mask=255
 vm-host-infra-fcp-02.flashstack.com  vmotion_ip=192.168.30.112  vmotion_mask=255.255.255.0
 vm-host-infra-fcp-03.flashstack.com  vmotion_ip=192.168.30.113  vmotion_mask=255.255.255.0
 
-# e.g. 10.1.1.101  vmotion_ip=192.168.30.101  vmotion_mask=255.255.255.0 
+# e.g. 10.1.1.101  vmotion_ip=192.168.30.101  vmotion_mask=255.255.255.0
 # e.g. 10.1.1.102  vmotion_ip=192.168.30.102  vmotion_mask=255.255.255.0
 
 
 [esxi_iscsi]
 #
 # Comment out or delete all the hosts if ESXi hosts with iSCSI connectivity are not present
-# FC host configuration will only take place if the variable configure_fc: "yes" is defined (not commended out)
+# FC host configuration will only take place if the variable configure_fc: "yes" is defined (not commented out)
 #
 #<ESXi-3-Mgmt-IP-Address> vmotion=<vMotion-VMK-IP-to-be-configured> vmotion_mask=<Subent Mask for vMotion> nfs=<NFS-VMK-IP-to-be-configured> nfs_mask=<Subent Mask for NFS> iscsi_a_ip=<iSCSI-A-IP-to-be-configured> iscsi_b_ip=<iSCSI-B-IP-to-be-configured> iscsi_mask=< Common Subnet Mask for both iSCSI>
-#<ESXi-4-Mgmt-IP-Address> vmotion=<vMotion-VMK-IP-to-be-configured> vmotion_mask=<Subent Mask for vMotion> nfs=<NFS-VMK-IP-to-be-configured> nfs_mask=<Subent Mask 
+#<ESXi-4-Mgmt-IP-Address> vmotion=<vMotion-VMK-IP-to-be-configured> vmotion_mask=<Subent Mask for vMotion> nfs=<NFS-VMK-IP-to-be-configured> nfs_mask=<Subent Mask
 
 nx-esxi-iscsi-1.flashstack.com vmotion_ip=192.168.30.117  vmotion_mask=255.255.255.0 iscsi_a_ip=192.168.101.61 iscsi_b_ip=192.168.102.61 iscsi_mask=255.255.255.0
 nx-esxi-iscsi-2.flashstack.com vmotion_ip=192.168.30.118  vmotion_mask=255.255.255.0 iscsi_a_ip=192.168.101.62 iscsi_b_ip=192.168.102.62 iscsi_mask=255.255.255.0
@@ -68,3 +69,18 @@ nx-esxi-iscsi-3.flashstack.com vmotion_ip=192.168.30.119  vmotion_mask=255.255.2
 # e.g. 10.1.1.103  vmotion_ip=192.168.30.103 vmotion_mask=255.255.255.0 iscsi_a_ip=192.168.10.103 iscsi_b_ip=192.168.20.103 iscsi_mask=255.255.255.0
 # e.g. 10.1.1.104  vmotion_ip=192.168.30.104 vmotion_mask=255.255.255.0 iscsi_a_ip=192.168.10.104 iscsi_b_ip=192.168.20.104 iscsi_mask=255.255.255.0
 
+[esxi_nvme]
+#
+# Comment out or delete all the hosts if ESXi hosts with NVMe connectivity are not present
+# FC-NVMe host configuration will only take place if the variable configure_fc_nvme: "yes" is defined, AND configure_fc: "no" is  commented out)
+#
+#nx-esxi-fc-1.flashstack.com  vmotion_ip=192.168.30.111  vmotion_mask=255.255.255.0
+#nx-esxi-fc-2.flashstack.com  vmotion_ip=192.168.30.112  vmotion_mask=255.255.255.0
+#nx-esxi-fc-3.flashstack.com  vmotion_ip=192.168.30.113  vmotion_mask=255.255.255.0
+
+vm-host-infra-nvme-1.flashstack.com vmotion_ip=192.168.30.121  vmotion_mask=255.255.255.0
+vm-host-infra-nvme-2.flashstack.com vmotion_ip=192.168.30.122  vmotion_mask=255.255.255.0
+vm-host-infra-nvme-3.flashstack.com vmotion_ip=192.168.30.123  vmotion_mask=255.255.255.0
+
+# e.g. 10.1.1.101  vmotion_ip=192.168.30.101  vmotion_mask=255.255.255.0
+# e.g. 10.1.1.102  vmotion_ip=192.168.30.102  vmotion_mask=255.255.255.0

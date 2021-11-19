@@ -1,3 +1,4 @@
+---
 # Variables for ESXi iSCSI (ONLY) Configuration
 # Adjust the variable values as per your requirements
 #
@@ -15,8 +16,7 @@ iscsi_a_portgroup: "iScsiBootPG"
 iscsi_b_portgroup: "iScsiBootPG-B"
 #
 iscsi_targets:
-    - "{{ iscsi_ct0_a }}"
-    - "{{ iscsi_ct0_b }}"
-    - "{{ iscsi_ct1_a }}"
-    - "{{ iscsi_ct1_b }}"
-
+  - "{{ iscsi_ct0_a }}"
+  - "{{ iscsi_ct0_b }}"
+  - "{{ iscsi_ct1_a }}"
+  - "{{ iscsi_ct1_b }}"

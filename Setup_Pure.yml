@@ -5,10 +5,9 @@
   hosts: localhost
   collections:
   - purestorage.flasharray
-  gather_facts: yes
+  gather_facts: true
   roles:
     ### Configure Pure FlashArray
     #
     - PUREconfig
     #
-

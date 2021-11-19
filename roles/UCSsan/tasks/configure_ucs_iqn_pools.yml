@@ -11,22 +11,22 @@
         "module": "ucsmsdk.mometa.iqnpool.IqnpoolPool",
         "class": "IqnpoolPool",
         "properties": {
-            "descr": "IQN Pool",
-            "assignment_order": "{{ san_assign_order}}",
-            "parent_mo_or_dn": "org-root",
-            "name": "{{ iqn_pool_name }}",
-            "prefix": "{{ iqn_prefix }}"
+          "descr": "IQN Pool",
+          "assignment_order": "{{ san_assign_order}}",
+          "parent_mo_or_dn": "org-root",
+          "name": "{{ iqn_pool_name }}",
+          "prefix": "{{ iqn_prefix }}"
+        },
+        "children": [
+          {
+            "module": "ucsmsdk.mometa.iqnpool.IqnpoolBlock",
+            "class": "IqnpoolBlock",
+            "properties": {
+              "suffix": "{{ iqn_suffix }}",
+              "r_from": "{{ iqn_block_start }}",
+              "to": "{{ iqn_block_end }}"
+            }
           },
-          "children": [
-            {
-              "module": "ucsmsdk.mometa.iqnpool.IqnpoolBlock",
-              "class": "IqnpoolBlock",
-              "properties": {
-                "suffix": "{{ iqn_suffix }}",
-                "r_from": "{{ iqn_block_start }}",
-                "to": "{{ iqn_block_end }}"
-              }
-            },
-            ]
-          }
+        ]
+      }
   when: configure_iscsi is defined
