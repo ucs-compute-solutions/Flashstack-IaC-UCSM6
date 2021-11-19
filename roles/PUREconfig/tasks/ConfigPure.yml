@@ -140,7 +140,7 @@
     fa_url: "{{ fa_url }}"
     api_token: "{{ fa_api_token }}"
   loop: "{{ esx_hosts_nvme | dict2items }}"
-  when: configure_fc_nvme is defined
+  when: configure_nvme is defined
 
 - name: Add datastore volume to hostgroup - iSCSI
   purefa_hg:
