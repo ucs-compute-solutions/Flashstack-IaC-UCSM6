@@ -1,5 +1,5 @@
 ---
-# Configuration of vNIC Templates 
+# Configuration of vNIC Templates
 # These templates are all setup as updating Templates
 #
 - name: Configure vNIC Templates

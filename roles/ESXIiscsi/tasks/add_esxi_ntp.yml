@@ -17,5 +17,5 @@
     validate_certs: false
     esxi_hostname: '{{ inventory_hostname }}'
     service_name: ntpd
-    service_policy: false
+    service_policy: true
   delegate_to: localhost

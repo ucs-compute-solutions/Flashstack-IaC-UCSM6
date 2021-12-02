@@ -1,0 +1,27 @@
+---
+- name: Set host count
+  vars:
+    host_count: 3
+# iSCSI Service Profile from Template
+#
+- name: Configure Profile from Template for iSCSI for M6 Servers
+  cisco.ucs.ucs_service_profile_from_template:
+    hostname: "{{ inventory_hostname }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+    name: "VM-HOST-Infra-iSCSI-{{item}}"
+    source_template: "{{ iscsi_SPT_name }}"
+  when: configure_iscsi is defined
+  loop: "{{ range(0, host_count)|list }}"
+#
+# FC Service Profile from Template
+#
+- name: Configure Service Profile from Template for FCP for M6 Servers
+  cisco.ucs.ucs_service_profile_from_template:
+    hostname: "{{ inventory_hostname }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+    name: "VM-HOST-Infra-FCP-{{loop_idx}}"
+    source_template: "{{ fc_SPT_name }}"
+  when: configure_fc is defined
+  loop: "{{ range(0, host_count)|list }}"

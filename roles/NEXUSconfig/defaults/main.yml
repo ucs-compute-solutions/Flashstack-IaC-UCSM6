@@ -16,12 +16,15 @@ global_settings:
   - port-channel load-balance src-dst l4port
   - system default switchport
   - system default switchport shutdown
+  - clock timezone EST -5 0
+  - clock summer-time EDT 2 Sunday March 02:00 1 Sunday November 02:00 60
+
 #
 global_NTP_servers:
   - 192.168.156.254
   - 192.168.156.1
-ntp_distribution_vlan: '115' # VLAN (IB-MGMT/Baremetal) where NTP distribution interfaces will be placed.
-ntp_distribution_gw: '10.1.156.254' # Default gateway for NTP distribution interfaces.
+ntp_distribution_vlan: '115'  # VLAN (IB-MGMT/Baremetal) where NTP distribution interfaces will be placed.
+ntp_distribution_gw: '10.1.156.254'  # Default gateway for NTP distribution interfaces.
 #
 mgmt_PC:
   - interface: "port-channel154"

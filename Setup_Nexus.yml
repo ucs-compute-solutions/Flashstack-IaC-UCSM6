@@ -6,7 +6,7 @@
 #
 - hosts: nexus
   connection: network_cli
-  gather_facts: no
+  gather_facts: false
   roles:
     ### Configure Nexus Switching
     #

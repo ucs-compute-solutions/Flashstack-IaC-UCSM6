@@ -11,7 +11,7 @@ chassis_link_aggr: port-channel
 # This is the list of all the server ports where chassis and rack servers are connected (enable the ports for rack serverrs as needed)
 #
 server_port_list:
-# UCS Chassis Connections
+  # UCS Chassis Connections
   - fabric_id: "A"
     slot_id: '1'
     port_id: '17'
@@ -205,7 +205,7 @@ port_channel_list:
 
 # This is the list of unused FC Ports that will be disabled to avoid alerts. Since FC ports
 # must be configure in groups (of 4 on the 6454 FI), some ports may be unused.
-#Disabling unused_FC_port_list as all four FC ports are used, uncomment the below line if only two ports are used.
+# Disabling unused_FC_port_list as all four FC ports are used, uncomment the below line if only two ports are used.
 unused_fc_port_list:
   - fabric_id: "A"
     slot_id: '1'
@@ -231,4 +231,3 @@ unused_fc_port_list:
   - fabric_id: "B"
     slot_id: '1'
     port_id: '8'
-

@@ -23,12 +23,12 @@ server_pool_name: 'Infra-Pool'
 # Add additional servers or blades to the list using the same format.
 #
 # C-Series Rack Servers
-#rack_list:
+# rack_list:
 #  - id: '1'
 #  - id: '2'
 #  - id: '3'
 #
-#B-Series Blade Servers
+# B-Series Blade Servers
 blade_list:
   - chassis_number: '1'
     slot_number: '1'
@@ -170,4 +170,3 @@ fc_boot_policy_name: 'Boot-FCP'
 #
 # FC Service Profile Template
 fc_SPT_name: 'VM-Host-Infra-FCP'
-
