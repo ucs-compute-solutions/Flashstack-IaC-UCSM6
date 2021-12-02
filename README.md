@@ -30,7 +30,7 @@ To execute various ansible playbooks, a linux based system will need to be setup
 ![image](https://user-images.githubusercontent.com/3585414/144472418-e5559aad-88bc-4ceb-a10c-c25f4fab8a53.png)
 
 ### Playbook Execution Commands – Summary:
-Setup all the variables before executing the playbooks as detailed in the CVD: https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/UCS_CVDs/flashstack_redhat-OCP.html
+Setup all the variables before executing the playbooks as detailed in the CVD: https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/UCS_CVDs/flashstack_vSphere7.0U2.html
 
 1.	Setup LAN on Nexus and UCS: "ansible-playbook ./Setup_Nexus.yml -i inventory"
 2.	Setup Pure FlashArray Initial Config - Optional: "ansible-playbook ./Setup_Pure.yml -i inventory"
