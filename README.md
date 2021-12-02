@@ -8,7 +8,7 @@ The CVD lays out the complete process for configuring the FlashStack using Ansib
 
 ![image](https://user-images.githubusercontent.com/3585414/144472122-bd8f417f-87a7-4ce1-b24d-9a5f0e903b81.png)
 
-# FlashStack - physical topology for IP connectivity
+# FlashStack - physical topology for FC connectivity
 
 ![image](https://user-images.githubusercontent.com/3585414/144472208-26c0459a-81e7-4294-9805-055676847052.png)
 
