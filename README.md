@@ -1,10 +1,16 @@
-# FlashStack Converged Infrastructure setup using Ansible for FlashStack Virtual Server Infrastructure with Cisco UCS 4.2(1) in UCS Managed Mode, VMware vSphere 7.0 U2, and Pure Storage FlashArray//X R3 Series ![image](https://user-images.githubusercontent.com/3585414/144469023-6fafbd03-4dbd-45b1-86b0-450f3f357d81.png)
+# FlashStack Converged Infrastructure setup using Ansible for FlashStack Virtual Server Infrastructure with Cisco UCS 4.2(1) in UCS Managed Mode, VMware vSphere 7.0 U2, and Pure Storage FlashArray//X R3 Series
 
 This repository for FlashStack contains Ansible playbooks to configure Cisco Nexus, Cisco UCS, Cisco MDS, Pure FlashArray for VMware ESXi and VMware vCenter. This repository can be used for setting up Cisco devices, Pure FlashArray as well as VMware ESXi and vCenter as covered in the following Cisco Validated Design (CVD): https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/UCS_CVDs/flashstack_vsi_xseries_70u2_design.html.
 
 The CVD lays out the complete process for configuring the FlashStack using Ansible. Since these playbooks are intended to save time in setting up a working FlashStack, a complete FlashStack as shown below is needed to execute the playbooks. Various simulators could be used to partially test individual playbooks.
 
-![image](https://user-images.githubusercontent.com/3585414/144469351-5f7cd3a6-fbe5-4a21-80b3-0b6d5e0b1f1b.png)
+# FlashStack - physical topology for IP connectivity
+
+![image](https://user-images.githubusercontent.com/3585414/144472122-bd8f417f-87a7-4ce1-b24d-9a5f0e903b81.png)
+
+# FlashStack - physical topology for IP connectivity
+
+![image](https://user-images.githubusercontent.com/3585414/144472208-26c0459a-81e7-4294-9805-055676847052.png)
 
 # Set up the execution environment
 To execute various ansible playbooks, a linux based system will need to be setup as described in the CVD with the packages listed at the following pages:
